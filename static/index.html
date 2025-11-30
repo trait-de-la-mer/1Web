@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Web lab</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <table id="main">
+        <tr>
+            <td><img src="./НормВазгВыр.png" height="100px" width="100px"></td>
+            <td class="header">Васильев Александр, P3214, 465355 вариант</td>
+            <td><a href="https://github.com/trait-de-la-mer" target="_blank">github </a></td>
+        </tr>
+        <tr>
+            <td rowspan="2"></td>
+            <td><canvas width="450" height="450"></canvas></td>
+            <td rowspan="2">
+                <table id="result">
+                    <tr                                                                                                                                     >
+                        <td>x</td>
+                        <td>y</td>
+                        <td>R</td>
+                        <td>curent time</td>
+                        <td>time</td>
+                        <td>Result</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/" method="POST" id="dataForm">
+                    <fieldset id="xs">
+                        <legend>Выбери X</legend>
+                        <input type="checkbox" class="x" value="-4"> -4
+                        <input type="checkbox" class="x" value="-3"> -3
+                        <input type="checkbox" class="x" value="-2"> -2
+                        <input type="checkbox" class="x" value="-1"> -1
+                        <input type="checkbox" class="x" value="0" checked> 0
+                        <input type="checkbox" class="x" value="1"> 1
+                        <input type="checkbox" class="x" value="2"> 2
+                        <input type="checkbox" class="x" value="3"> 3
+                        <input type="checkbox" class="x" value="4"> 4
+                    </fieldset>
+                    <fieldset>
+                        <div>Введи Y: 
+                            <input required class="param" id="y" value="0" autocomplete="off"/>
+                            <div id="error" hidden>
+                                Y должен быть числом от -5 до 5
+                            </div>
+                             Введи R: 
+                            <select id="r" autocomplete="off">
+                                <option value="1.0" selected>1.0</option>
+                                <option value="2.0">2.0</option>
+                                <option value="3.0">3.0</option>
+                                <option value="4.0">4.0</option>
+                                <option value="5.0">5.0</option>
+                            </select>
+                            <button type="submit">submit</button>
+                        </div>
+                    </fieldset>
+               </form>
+            </td>
+        </tr>
+        <tr> 
+            <td colspan="3" class="footer">Санкт-Петербург 2025</td>
+        </tr>
+    </table>
+    <script src="index.js"></script>
+</body>
+</html>

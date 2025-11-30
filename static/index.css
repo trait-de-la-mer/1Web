@@ -1,0 +1,58 @@
+html {
+    background-color: #4a4a4a;
+    color: white;
+}
+
+#main {
+  table-layout: auto;
+  width: 100%;
+}
+
+#result {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#result td{
+    border: 1px solid white;
+    padding: 8px;
+}
+
+td {
+    text-align: center;
+}
+
+::selection {
+    background-color: whitesmoke;
+}
+
+
+::-moz-selection {
+    background-color: whitesmoke;
+}
+
+input[type="button"]:hover{
+    background-color: #c5bfbf;
+    border-radius: 10px;
+}
+
+input[type="button"]:active{
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 10px;    
+}
+
+fieldset {
+    background-color: #2b2b2b;
+     overflow: visible;
+}
+
+input {
+     margin: 5px;
+}
+
+#error {
+    color: #ff6b6b;
+    font-size: 0.85em;
+    margin-top: 4px;
+}

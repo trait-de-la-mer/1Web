@@ -1,0 +1,49 @@
+version: 1.0
+failThreshold: 0
+profile:
+  name: qodana.recommended
+include:
+  - name: NullableProblems
+  - name: Finalize
+  - name: AutoCloseableResource
+  - name: IOResource
+  - name: SocketResource
+  - name: JDBCResource
+  - name: HardCodedPassword
+  - name: UnsafeVoidFunction
+  - name: SocketSecurity
+  - name: SSLSocketSecurity
+  - name: StringConcatenationInLoops
+  - name: UseStringBufferForStringAppends
+  - name: AutoBoxing
+  - name: UnnecessaryTemporaryObject
+  - name: ConstantConditions
+  - name: MethodMayBeStatic
+  - name: UnnecessaryLocalVariable
+  - name: RedundantTypeConversion
+  - name: ArrayEquality
+  - name: ObjectEquality
+  - name: DivideByZero
+  - name: InfiniteLoop
+  - name: InfiniteRecursion
+  - name: MissingOverrideAnnotation
+  - name: PublicField
+  - name: SynchronizeOnThis
+  - name: DoubleCheckedLocking
+  - name: SerializableHasSerialVersionUIDField
+  - name: RawTypes
+  - name: UncheckedWarning
+  - name: OptionalContainsNull
+  - name: LambdaCanBeMethodCall
+  - name: FieldNaming
+  - name: MethodNaming
+  - name: ClassNaming
+  - name: UnusedImports
+  - name: WildcardImports
+  - name: MissingJavaDoc
+  - name: ModifierOrder
+  - name: JavaCodeStyle
+  - name: JavaNamingConventions
+  - name: JavaImportStyle
+  - name: JavaDocValidation
+linter: jetbrains/qodana-jvm-community:2025.2
