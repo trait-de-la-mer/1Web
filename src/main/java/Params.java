@@ -63,8 +63,9 @@ class Params {
             throw new ValidationException("x is invalid");
         }
         try {
-            var xx = Integer.parseInt(x);
-            if (xx < -4 || xx > 4) {
+            var xx = new BigDecimal(x);
+            //Integer.parseInt(x);
+            if (xx.compareTo(BigDecimal.valueOf(-4)) < 0 || xx.compareTo(BigDecimal.valueOf(4)) > 0) {
                 throw new ValidationException("x has forbidden value");
             }
         } catch (NumberFormatException e) {
