@@ -1,22 +1,47 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 class Params {
     private final BigDecimal x;
     private final BigDecimal y;
     private final BigDecimal r;
 
+    private List<String> sorting(String[] unSortPar){
+        HashMap<String, String> params = new HashMap<>();
+        for (String par: unSortPar) {
+            String[] letterSign = par.split("=");
+            String letter = letterSign[0];
+            String realSign = letterSign[1];
+            switch (letter.charAt(letter.length() - 1)) {
+                case 'Y':
+                    params.put("y", realSign);
+                case 'r':
+                    params.put("r", realSign);
+                case 'x':
+                    params.put("x", realSign);
+            }
+        }
+            List<String> sortList = new ArrayList<>();
+            sortList.add(params.get("x"));
+            sortList.add(params.get("y"));
+            sortList.add(params.get("r"));
+        return sortList;
+    }
+
     public Params(String query) throws ValidationException {
         if (query == null || query.isEmpty()) {
             throw new ValidationException("Missing query string");
         }
         var badParams = query.split("&");
-        ArrayList<String> params = new ArrayList<>();
-        for (String par: badParams) {
-            String[] letterSign = par.split("=");
-            String realSign = letterSign[1];
-            params.add(realSign);
-        }
+        List<String> params = sorting(badParams);
+        //for (String par: badParams) {
+        //    String[] letterSign = par.split("=");
+        //    String letter = letterSign[0];
+        //    String realSign = letterSign[1];
+        //    params.add(letter + realSign);
+        //}
         validateParams(params);
         this.x = new BigDecimal(params.get(0));
         this.y = new BigDecimal(params.get(1));
@@ -24,7 +49,7 @@ class Params {
     }
 
 
-    private static void validateParams(ArrayList<String> params) throws ValidationException {
+    private static void validateParams(List<String> params) throws ValidationException {
         var x = params.get(0);
         if (x == null || x.isEmpty()) {
             throw new ValidationException("x is invalid");

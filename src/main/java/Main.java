@@ -35,17 +35,22 @@ public class Main {
     private static final String ERROR_JSON = """
             {
                 "now": "%s",
-                "reason": "%s"
+                "reason": "%s",
+                "test": "%s"
             }
             """;
 
 
+
+    static public String testOut = "zero";
     public static void main(String[] args) {
         FCGIInterface fcgi = new FCGIInterface();
         while (fcgi.FCGIaccept() >= 0) {
             try {
                 String queryParams = readAllStream(System.in);
-                Params params= new Params(queryParams);
+                //testOut = queryParams;
+                Params params = new Params(queryParams);
+                //testOut = String.valueOf(params.getR());
                 Instant startTime = Instant.now();
                 boolean result = calculate(params.getX(), params.getY(), params.getR());
                 Instant endTime = Instant.now();
@@ -56,7 +61,7 @@ public class Main {
                 String response = String.format(HTTP_RESPONSE, massegeLenght, json);
                 System.out.println(response);
             } catch (Exception e) {
-                String json = String.format(ERROR_JSON, LocalDateTime.now(), e.getMessage());
+                String json = String.format(ERROR_JSON, LocalDateTime.now(), e.getMessage(), testOut);
                 Integer massegeLenght = Integer.valueOf(String.valueOf(json.getBytes(StandardCharsets.UTF_8).length + 2));
                 String response = String.format(HTTP_ERROR, massegeLenght, json);
                 System.out.println(response);

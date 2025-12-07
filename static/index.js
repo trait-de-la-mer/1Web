@@ -50,8 +50,8 @@ const canva = function canva(){
 
  state = {
     siteX: 0,
-    siteR: 1.0,
     siteY: "0",
+    siteR: 1.0,
 },
 input = document.getElementsByClassName("param"),
 table = document.getElementById("result"),
@@ -123,8 +123,8 @@ document.getElementById("dataForm").addEventListener("submit", async (ev) => {
         rowResult = newRow.insertCell(CELL_INDEX.RESULT),
         results = { 
             resX: state.siteX,
-            resR: state.siteR,
             resY: state.siteY,
+            resR: state.siteR,
             execTime: "",
             currentTime: "",    
             result: false,  
