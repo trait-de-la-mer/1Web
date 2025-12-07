@@ -173,6 +173,15 @@ document.getElementById("r").addEventListener("change", (ev) => {
     state.siteR = parseFloat(ev.target.value);
 });
 
+canvas.addEventListener("click", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+    state.siteX = (scale - clickX)/(scale/r);
+    state.siteY = (scale - clickY)/(scale/r);
+    printPoint(state.siteX, state.siteY, state.siteR, true);
+})
+
 document.getElementById("dataForm").addEventListener("submit", async (ev) => {
     ev.preventDefault();
     const checkedX = document.querySelectorAll('.x:checked');
