@@ -179,7 +179,8 @@ canvas.addEventListener("click", (e) => {
     const clickY = e.clientY - rect.top;
     state.siteX = (clickX - centerY)/(scale/state.siteR);
     state.siteY = -(clickY - centerX)/(scale/state.siteR);
-    printPoint(state.siteX, state.siteY, state.siteR, true);
+    checkPoint();
+    //printPoint(state.siteX, state.siteY, state.siteR, );
 })
 
 document.getElementById("dataForm").addEventListener("submit", async (ev) => {
