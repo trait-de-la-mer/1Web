@@ -177,8 +177,8 @@ canvas.addEventListener("click", (e) => {
     const rect = canvas.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const clickY = e.clientY - rect.top;
-    state.siteX = (scale - clickX)/(scale/r);
-    state.siteY = (scale - clickY)/(scale/r);
+    state.siteX = (clickX - centerY)/(scale/state.siteR);
+    state.siteY = -(clickY - centerX)/(scale/state.siteR);
     printPoint(state.siteX, state.siteY, state.siteR, true);
 })
 
