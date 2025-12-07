@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,23 +11,29 @@ class Params {
 
     private List<String> sorting(String[] unSortPar){
         HashMap<String, String> params = new HashMap<>();
+        Main.testOut = "";
         for (String par: unSortPar) {
+            Main.testOut += "|||";
             String[] letterSign = par.split("=");
             String letter = letterSign[0];
             String realSign = letterSign[1];
+            Main.testOut += letter.charAt(letter.length() - 1);
             switch (letter.charAt(letter.length() - 1)) {
-                case 'Y':
+                case 'Y' -> {
                     params.put("y", realSign);
-                case 'r':
+                }
+                case 'R' -> {
                     params.put("r", realSign);
-                case 'x':
+                }
+                case 'X' -> {
                     params.put("x", realSign);
+                }
             }
         }
-            List<String> sortList = new ArrayList<>();
-            sortList.add(params.get("x"));
-            sortList.add(params.get("y"));
-            sortList.add(params.get("r"));
+        List<String> sortList = new ArrayList<>();
+        sortList.add(params.get("x"));
+        sortList.add(params.get("y"));
+        sortList.add(params.get("r"));
         return sortList;
     }
 
@@ -36,6 +43,7 @@ class Params {
         }
         var badParams = query.split("&");
         List<String> params = sorting(badParams);
+        //Main.testOut = params.toString();
         //for (String par: badParams) {
         //    String[] letterSign = par.split("=");
         //    String letter = letterSign[0];

@@ -29,7 +29,8 @@ public class Main {
             {
                 "time": "%s",
                 "now": "%s",
-                "result": %b
+                "result": %b,
+                "test": "%s"
             }
             """;
     private static final String ERROR_JSON = """
@@ -56,7 +57,7 @@ public class Main {
                 Instant endTime = Instant.now();
                 Long timeBetween = Long.valueOf(ChronoUnit.NANOS.between(startTime, endTime));
                 Boolean resultObj = Boolean.valueOf(result);
-                String json = String.format(RESULT_JSON, timeBetween, LocalDateTime.now(), resultObj);
+                String json = String.format(RESULT_JSON, timeBetween, LocalDateTime.now(), resultObj, testOut);
                 Integer massegeLenght = Integer.valueOf(String.valueOf(json.getBytes(StandardCharsets.UTF_8).length + 2));
                 String response = String.format(HTTP_RESPONSE, massegeLenght, json);
                 System.out.println(response);
